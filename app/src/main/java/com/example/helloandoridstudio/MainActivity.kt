@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
     }
     fun crearLista(){
         val nombres = contactoAdmin.getAllNames()
-        val adaptador = ArrayAdapter(AppContactos.CONTEXT,android.R.layout.simple_expandable_list_item_1,nombres!!.toMutableList())
+        val adaptador = ArrayAdapter(AppContactos.CONTEXT,android.R.layout.simple_list_item_1,nombres!!.toMutableList())
         listContactos.adapter = adaptador
         listContactos.onItemClickListener = AdapterView.OnItemClickListener { adapterView, view, i, l ->
             val item = nombres!!.get(i)

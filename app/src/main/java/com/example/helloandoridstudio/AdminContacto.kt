@@ -22,7 +22,7 @@ class AdminContacto {
                 c.moveToFirst()
                 do{
                     //Rellenamos el arreglo de respuestas
-                    nombres.add(c.getString(c.getColumnIndex(Contract.Contacto.NOMBRE)))
+                    nombres.add(c.getString(c.getColumnIndex(Contract.Contacto.NOMBRE).toInt()))
                 }while (c.moveToNext())
 
             }else {
@@ -42,7 +42,7 @@ class AdminContacto {
         try {
             val db = AppContactos.DB.writableDatabase
             var qry = "INSERT INTO ${AppContactos.TB_CONTACTOS}("+
-                    "${Contract.Contacto.NOMBRE}, ${Contract.Contacto.NUMERO} "+
+                    "${Contract.Contacto.NOMBRE}, ${Contract.Contacto.NUMERO}) "+
                     "VALUES('${contacto.nombre}','${contacto.numero}');"
             db.execSQL(qry)
             db.close()
